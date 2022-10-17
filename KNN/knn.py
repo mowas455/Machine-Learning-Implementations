@@ -21,6 +21,7 @@ print(x_test.shape)
 # plot show the orginal 
 plt.figure()
 plt.scatter(x[:,0], x[:, 1], c = y, cmap=cmap,edgecolors='k', s= 20)
+plt.title('Original Classes')
 plt.show()
 
 # From the scratch model of knn
@@ -33,4 +34,13 @@ acc = np.sum(predictions == y_test) / len(y_test)
 print(acc)
 
 # This is directly the sklearn libaray
-from sklearn.neighbors import KNeighborsClassifier
+#from sklearn.neighbors import KNeighborsClassifier
+
+plt.figure()
+plt.scatter(x_test[:,0], x_test[:, 1], c = predictions, cmap=cmap,edgecolors='k', s= 20)
+plt.title('Predicted Classes')
+plt.show()
+
+
+        
+        
