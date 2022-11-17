@@ -73,8 +73,8 @@ from pandas.tseries.offsets import CustomBusinessDay
 us_bd = CustomBusinessDay(calendar=USFederalHolidayCalendar())
 #Remember that we can only predict one day in future as our model needs 5 variables
 #as inputs for prediction. We only have all 5 variables until the last day in our dataset.
-n_past = 20
-n_days_for_prediction=60  #let us predict past 15 days
+n_past = 16
+n_days_for_prediction=15  #let us predict past 15 days
 
 predict_period_dates = pd.date_range(list(train_dates)[-n_past], periods=n_days_for_prediction, freq=us_bd).tolist()
 print(predict_period_dates)
@@ -89,7 +89,7 @@ prediction_copies = np.repeat(prediction, df_for_training.shape[1], axis=-1)
 y_pred_future = scaler.inverse_transform(prediction_copies)[:,0]
 
 
-# Convert timestamp to date
+# Convert timestamp to date-
 forecast_dates = []
 for time_i in predict_period_dates:
     forecast_dates.append(time_i.date())
